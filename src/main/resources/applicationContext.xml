@@ -14,7 +14,10 @@
     </bean>
 
     <bean id="classicalMusic"
-        class="org.example.ClassicalMusic">
+        class="org.example.ClassicalMusic"
+        init-method="doMyInit"
+        destroy-method="doMyDestroy"
+        factory-method="getClassicalMusic">
     </bean>
 
     <bean id="rapMusic"
