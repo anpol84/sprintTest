@@ -1,13 +1,24 @@
 package org.example;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Scope("prototype")
 public class ClassicalMusic implements Music{
-
+    @PostConstruct
+    public void doMyInit(){
+        System.out.println("Doing my initialization");
+    }
+    @PreDestroy
+    public void doMyDestroy(){
+        System.out.println("Doing my destruction");
+    }
     ArrayList<String> list = new ArrayList<>();
     public ClassicalMusic(){
         list.add("Classical Music 1");
